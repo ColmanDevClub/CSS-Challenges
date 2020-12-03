@@ -1,0 +1,122 @@
+*,
+*::before,
+*::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/*
+left decoration = gradient hsl(293, 100%, 63%) 33% to hsl(264, 100%, 61%) 66%
+right decoration = hsl(206, 6%, 79%)
+HeadLine = hsl(271, 36%, 24%)
+text = hsl(270, 7%, 64%)
+background = #F5F3F7
+*/
+
+html
+{
+    box-sizing: border-box;
+    font-size: 62.5%;
+    background-color: #F5F3F7;
+    overflow: hidden;
+}
+
+body
+{
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 5000px;
+}
+
+.context
+{
+    width: 60rem;
+    z-index: 1000;
+}
+
+.context__title
+{
+    color: hsl(271, 36%, 24%);
+    font-size: 5rem;
+    margin-bottom: 2rem;
+}
+
+.context__para
+{
+    color: hsl(270, 7%, 64%);
+    font-size: 2.2rem;
+}
+
+.decoration
+{
+    position: absolute;
+    height: 90%;
+    width: 50rem;
+    border-radius: 0 0 50% 50% / 29%;
+}
+
+.decoration-purple
+{
+    top: 0;
+    left: -15rem;
+    background-image: linear-gradient(to bottom right, hsl(293, 100%, 63%) 33%,hsl(264, 100%, 61%) 66%);
+    animation: purp-rotate 10s infinite;
+}
+
+.decoration-grey
+{
+    bottom: 0;
+    right: -15rem;
+    transform: rotateX(180deg);
+    background-color: hsl(206, 6%, 79%);
+    animation: grey-rotate 10s infinite;
+}
+
+@keyframes purp-rotate
+{
+    0%
+    {
+        transform: rotateX(0);
+    }
+
+    50%
+    {
+        transform: rotateX(-180deg);
+    }
+
+    70%
+    {
+        transform: rotateX(0deg);
+    }
+    100%
+    {
+        transform: rotateX(0);
+    }
+}
+
+@keyframes grey-rotate
+{
+    0%
+    {
+        transform: rotateX(180deg);
+    }
+
+    50%
+    {
+        transform: rotateX(0);
+    }
+
+    70%
+    {
+        transform: rotateX(180deg);
+    }
+    100%
+    {
+        transform: rotateX(180deg);
+    }
+}
